@@ -1,9 +1,14 @@
 require 'spec_helper'
 
 describe ActiveImap::Folder do
-  before :all do
-    @connection = ActiveImap::Connection.new TEST_IMAP_CONFIG
-  end
+  before :each do
+		TestMailbox.prepare
+    @connection = ActiveImap::Connection.new TestMailbox.config
+	end
+	
+	after :each do
+		@connection.logout_and_disconnect
+	end
   
   it "should get the INBOX in different ways" do
     inbox = ActiveImap::Folder.first @connection

@@ -6,3 +6,5 @@ pkg
 tmp
 rdoc
 spec/support/connection_credentials.rb
+spec/support/test_mailbox.rb
+

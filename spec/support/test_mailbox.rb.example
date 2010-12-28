@@ -1,0 +1,30 @@
+# This class is used to configure test imap server.
+# 
+# This solution requires to have dovecot server installed on localhost and configured to have
+# maildir on '~/Maildir' (see http://kevin.deldycke.com/2010/04/setup-lightweight-imap-server-macos-leopard-dovecot
+# for how-to).
+#
+# +prepare+ method is run before every scenario, to keep mail box status consistent and every
+# test-case independent. Please make sure you don't use directories that it uses, and then
+# uncomment it.
+
+class TestMailbox
+	def self.config
+		ActiveImap::Config.new do |c|
+			c.server_host = 'localhost'
+			c.server_port = 993
+			c.server_ssl  = true
+			c.imap_user = 'user'
+			c.imap_password = 'password'
+		end
+	end
+	
+	# WARNING: this will remove you ~/Maildir directory. If you use it for other purposes, you must find
+	# another way to prepare mail dir.
+	# In other cases you can uncomment this lines.
+	# def self.prepare
+	#  	sample_maildir = File.join(File.dirname(__FILE__), "Maildir.tar.gz")
+	#	 `rm -rf ~/Maildir`
+	#	 `tar -xzf '#{sample_maildir}' -C ~`
+	# end
+end
