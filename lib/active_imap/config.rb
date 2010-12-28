@@ -2,6 +2,7 @@ module ActiveImap
   class Config
     attr_writer :charset, :separator # :nodoc:
     attr_writer :server_host, :server_port, :server_ssl # :nodoc:
+		attr_accessor :imap_user, :imap_password
     
     def initialize(&block) #:nodoc:
       configure(&block) if block_given?

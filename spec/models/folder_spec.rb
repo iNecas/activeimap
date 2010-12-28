@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ActiveImap::Folder do
   before :all do
-    @connection = ActiveImap::Connection.new ActiveImap::TestCredentials.imap_user, ActiveImap::TestCredentials.imap_password
+    @connection = ActiveImap::Connection.new TEST_IMAP_CONFIG
   end
   
   it "should get the INBOX in different ways" do

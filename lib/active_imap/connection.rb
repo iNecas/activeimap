@@ -1,8 +1,8 @@
 module ActiveImap
   class Connection
-    def initialize(user, password, options = {})
-      @imap = Net::IMAP.new(ActiveImap.config.server_host, ActiveImap.config.server_port, ActiveImap.config.server_ssl)
-      @imap.login(user, password)    
+    def initialize(config, options = {})
+      @imap = Net::IMAP.new(config.server_host, config.server_port, config.server_ssl)
+      @imap.login(config.imap_user, config.imap_password)    
     end
     
     def logout_and_disconnect
