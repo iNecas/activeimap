@@ -51,6 +51,5 @@ describe ActiveImap::Folder do
     inbox = ActiveImap::Folder.find_by_mailbox(@connection, 'INBOX')
     message = inbox.messages.first
     message.date.class.should be Time
-    message.body_text.should be false
   end
 end
