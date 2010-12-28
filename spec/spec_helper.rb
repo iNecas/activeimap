@@ -9,7 +9,7 @@ require "#{File.dirname(__FILE__)}/../lib/active_imap"
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -23,8 +23,7 @@ Rspec.configure do |config|
   # uncomment the following line.
   # config.use_transactional_examples = false
   
-  config.use_transactional_examples = false
-  config.color_enabled = true
-  config.formatter = 'doc'
+  #config.color_enabled = true
+  #config.formatter = 'doc'
 end
 
